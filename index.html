@@ -223,6 +223,27 @@ section{padding-block:clamp(56px,8vw,92px)}
 .info .v{font-weight:700;font-size:.95rem;margin-top:3px;line-height:1.35}
 @media(max-width:900px){.infos{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:460px){.infos{grid-template-columns:1fr}}
+.enroll{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:20px 24px;margin-bottom:16px}
+.enroll .lbl{font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.enroll .big{font-family:"Anton",sans-serif;font-size:2rem;color:var(--violet);line-height:1;margin-top:4px}
+.enroll .big small{font-family:"Archivo",sans-serif;font-size:.8rem;color:var(--muted);font-weight:600}
+.enroll .break{color:var(--muted);font-size:.95rem;margin-left:auto}
+.enroll .break b{color:var(--ink);font-weight:800}
+@media(max-width:560px){.enroll .break{margin-left:0}}
+.prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.prog-grid{grid-template-columns:1fr}}
+.prog{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:24px;position:relative;overflow:hidden}
+.prog::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--violet-bright),var(--violet))}
+.prog .badge{display:inline-block;font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--violet);background:var(--surface-2);padding:6px 12px;border-radius:999px}
+.prog .when{font-weight:700;margin-top:12px;color:var(--ink)}
+.prog .when span{color:var(--muted);font-weight:600}
+.prog .lines{display:grid;gap:10px;margin-top:16px}
+.prog .line{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-top:1px dashed var(--line);padding-top:11px}
+.prog .line:first-child{border-top:0;padding-top:0}
+.prog .line .desc{color:var(--muted);font-size:.92rem}
+.prog .line .amt2{font-family:"Anton",sans-serif;font-size:1.4rem;color:var(--violet);white-space:nowrap}
+.prog .line .amt2 small{font-family:"Archivo",sans-serif;font-size:.72rem;color:var(--muted);font-weight:600}
+.abo-note{color:var(--muted);font-size:.9rem;margin-top:12px}
 
 /* events gallery */
 .gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:12px}
@@ -503,24 +524,44 @@ footer{padding-block:40px 30px;border-top:1px solid var(--line);margin-top:8px}
         <p class="sub" data-i18n="tar_sub">Des formules simples, dès 3 ans. Entraînements le week-end à l'Université de Cocody — et si vous êtes loin, un coach peut venir jusqu'à vous.</p>
       </div>
     </div>
-    <div class="price-grid">
-      <div class="price reveal"><div class="nm" data-i18n="price1_nm">Inscription</div><div class="amt" data-i18n="price1_amt">15 000 <small>F</small></div><div class="nt" data-i18n="price1_nt">Frais uniques, à l'arrivée.</div></div>
-      <div class="price reveal"><div class="nm" data-i18n="price2_nm">1 séance / semaine</div><div class="amt" data-i18n="price2_amt">15 000 <small>F / mois</small></div><div class="nt" data-i18n="price2_nt">Abonnement mensuel, à partir de.</div></div>
-      <div class="price reveal"><div class="nm" data-i18n="price3_nm">2 séances / semaine</div><div class="amt" data-i18n="price3_amt">20 000 <small>F / mois</small></div><div class="nt" data-i18n="price3_nt">Pour progresser plus vite.</div></div>
-      <div class="price reveal"><div class="nm" data-i18n="price4_nm">Coach à domicile</div><div class="amt" data-i18n="price4_amt">10 000 <small>F / séance</small></div><div class="nt" data-i18n="price4_nt">Réduction selon le nombre d'enfants.</div></div>
+    <div class="enroll reveal">
+      <div>
+        <div class="lbl" data-i18n="enroll_lbl">Frais d'inscription (unique)</div>
+        <div class="big" data-i18n="enroll_amt">25 000 <small>F CFA</small></div>
+      </div>
+      <div class="break" data-i18n="enroll_break"><b>Droit d'inscription</b> 20 000 F &nbsp;+&nbsp; <b>Tee-shirt ARS</b> 5 000 F</div>
     </div>
-    <div class="price-grid" style="grid-template-columns:1fr;margin-top:16px">
+    <div class="prog-grid">
+      <div class="prog reveal">
+        <span class="badge" data-i18n="prog1_badge">Programme week-end</span>
+        <div class="when" data-i18n="prog1_when">Samedi &amp; dimanche · <span>16h30–18h00</span></div>
+        <div class="lines">
+          <div class="line"><span class="desc" data-i18n="prog1_l1_desc">1 séance/semaine (samedi ou dimanche)</span><span class="amt2" data-i18n="prog1_l1_amt">15 000 <small>F/mois</small></span></div>
+          <div class="line"><span class="desc" data-i18n="prog1_l2_desc">2 séances/semaine (samedi et dimanche)</span><span class="amt2" data-i18n="prog1_l2_amt">20 000 <small>F/mois</small></span></div>
+        </div>
+      </div>
+      <div class="prog reveal">
+        <span class="badge" data-i18n="prog2_badge">Programme en semaine</span>
+        <div class="when" data-i18n="prog2_when">Mercredi · <span>16h30–18h00</span></div>
+        <div class="lines">
+          <div class="line"><span class="desc" data-i18n="prog2_l1_desc">Séances du mercredi</span><span class="amt2" data-i18n="prog2_l1_amt">20 000 <small>F/mois</small></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="abo-note reveal" data-i18n="abo_note">Abonnement mensuel obligatoire, en plus des frais d'inscription.</p>
+    <div class="price-grid" style="grid-template-columns:1fr 1fr;margin-top:18px">
+      <div class="price reveal"><div class="nm" data-i18n="price4_nm">Coach à domicile</div><div class="amt" data-i18n="price4_amt">10 000 <small>F / séance</small></div><div class="nt" data-i18n="price4_nt">Réduction selon le nombre d'enfants.</div></div>
       <div class="price feature reveal" style="flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
         <div>
-          <div class="nm" style="font-size:1.15rem" data-i18n="pack_nm">Pack équipement complet</div>
-          <div class="nt" style="padding-top:4px;max-width:46ch" data-i18n="pack_nt">Roller + protections + casque — tout le nécessaire pour démarrer en sécurité. L'équipement complet est obligatoire pour s'entraîner.</div>
+          <div class="nm" style="font-size:1.1rem" data-i18n="pack_nm">Pack équipement complet</div>
+          <div class="nt" style="padding-top:4px;max-width:42ch" data-i18n="pack_nt">Roller + protections + casque — tout le nécessaire pour démarrer en sécurité. L'équipement complet est obligatoire pour s'entraîner.</div>
         </div>
-        <div class="amt" style="font-size:2.6rem" data-i18n="pack_amt">55 000 <small>F</small></div>
+        <div class="amt" style="font-size:2.3rem" data-i18n="pack_amt">55 000 <small>F</small></div>
       </div>
     </div>
     <div class="infos">
-      <div class="info reveal"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="lab" data-i18n="info1_lab">Lieu</div><div class="v" data-i18n="info1_v">Université de Cocody — Grand parking des amphis du district</div></div></div>
-      <div class="info reveal"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="lab" data-i18n="info2_lab">Entraînements</div><div class="v" data-i18n="info2_v">Samedi &amp; dimanche · 16h30–18h00</div></div></div>
+      <div class="info reveal"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="lab" data-i18n="info1_lab">Lieu</div><div class="v" data-i18n="info1_v">Université de Cocody — Parking des amphithéâtres du District</div></div></div>
+      <div class="info reveal"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="lab" data-i18n="info2_lab">Entraînements</div><div class="v" data-i18n="info2_v">Mercredi, samedi &amp; dimanche · 16h30–18h00</div></div></div>
       <div class="info reveal"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></div><div><div class="lab" data-i18n="info3_lab">Âge minimum</div><div class="v" data-i18n="info3_v">À partir de 3 ans</div></div></div>
       <div class="info reveal"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="lab" data-i18n="info4_lab">Équipement</div><div class="v" data-i18n="info4_v">Complet &amp; obligatoire — pack dispo à 55 000 F</div></div></div>
     </div>
@@ -605,7 +646,7 @@ footer{padding-block:40px 30px;border-top:1px solid var(--line);margin-top:8px}
         </div>
         <div class="crow">
           <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="lab" data-i18n="lab_loc">Où nous trouver</div><div class="val" data-i18n="loc_val">Université de Cocody — Grand parking des amphis du district, Abidjan</div></div>
+          <div><div class="lab" data-i18n="lab_loc">Où nous trouver</div><div class="val" data-i18n="loc_val">Université de Cocody — Parking des amphithéâtres du District, Abidjan</div></div>
         </div>
         <div class="crow">
           <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></div>
@@ -708,7 +749,21 @@ var I18N={
   shop_note:{fr:`Nous conseillons l'équipement complet de protection pour chaque pratiquant, enfant comme adulte.`,en:`We recommend the full protective kit for every skater, children and adults alike.`},
   tar_eyebrow:{fr:`Tarifs &amp; inscription`,en:`Pricing &amp; enrolment`},
   tar_h2:{fr:`Rejoindre l'<em>ARS</em>`,en:`Join <em>ARS</em>`},
-  tar_sub:{fr:`Des formules simples, dès 3 ans. Entraînements le week-end à l'Université de Cocody — et si vous êtes loin, un coach peut venir jusqu'à vous.`,en:`Simple plans, from age 3. Weekend training at Université de Cocody — and if you're far, a coach can come to you.`},
+  tar_sub:{fr:`Des formules simples, dès 3 ans, au parking des amphithéâtres du District (Université de Cocody). Séances en semaine et le week-end — et un coach peut aussi venir jusqu'à vous.`,en:`Simple plans, from age 3, at the District amphitheatres car park (Université de Cocody). Weekday and weekend sessions — and a coach can even come to you.`},
+  enroll_lbl:{fr:"Frais d'inscription (unique)",en:"Registration fee (one-time)"},
+  enroll_amt:{fr:`25 000 <small>F CFA</small>`,en:`25,000 <small>F CFA</small>`},
+  enroll_break:{fr:`<b>Droit d'inscription</b> 20 000 F &nbsp;+&nbsp; <b>Tee-shirt ARS</b> 5 000 F`,en:`<b>Registration</b> 20,000 F &nbsp;+&nbsp; <b>ARS tee-shirt</b> 5,000 F`},
+  prog1_badge:{fr:"Programme week-end",en:"Weekend program"},
+  prog1_when:{fr:`Samedi &amp; dimanche · <span>16h30–18h00</span>`,en:`Saturday &amp; Sunday · <span>4:30–6:00 pm</span>`},
+  prog1_l1_desc:{fr:"1 séance/semaine (samedi ou dimanche)",en:"1 session/week (Sat or Sun)"},
+  prog1_l1_amt:{fr:`15 000 <small>F/mois</small>`,en:`15,000 <small>F/mo</small>`},
+  prog1_l2_desc:{fr:"2 séances/semaine (samedi et dimanche)",en:"2 sessions/week (Sat &amp; Sun)"},
+  prog1_l2_amt:{fr:`20 000 <small>F/mois</small>`,en:`20,000 <small>F/mo</small>`},
+  prog2_badge:{fr:"Programme en semaine",en:"Weekday program"},
+  prog2_when:{fr:`Mercredi · <span>16h30–18h00</span>`,en:`Wednesday · <span>4:30–6:00 pm</span>`},
+  prog2_l1_desc:{fr:"Séances du mercredi",en:"Wednesday sessions"},
+  prog2_l1_amt:{fr:`20 000 <small>F/mois</small>`,en:`20,000 <small>F/mo</small>`},
+  abo_note:{fr:"Abonnement mensuel obligatoire, en plus des frais d'inscription.",en:"Monthly subscription required, in addition to the registration fee."},
   price1_nm:{fr:"Inscription",en:"Registration"},
   price1_amt:{fr:`15 000 <small>F</small>`,en:`15,000 <small>F</small>`},
   price1_nt:{fr:"Frais uniques, à l'arrivée.",en:"One-time fee, on arrival."},
@@ -725,9 +780,9 @@ var I18N={
   pack_nt:{fr:`Roller + protections + casque — tout le nécessaire pour démarrer en sécurité. L'équipement complet est obligatoire pour s'entraîner.`,en:`Skates + pads + helmet — everything you need to start safely. Full equipment is required to train.`},
   pack_amt:{fr:`55 000 <small>F</small>`,en:`55,000 <small>F</small>`},
   info1_lab:{fr:"Lieu",en:"Location"},
-  info1_v:{fr:"Université de Cocody — Grand parking des amphis du district",en:"Université de Cocody — Main amphitheatre car park"},
+  info1_v:{fr:"Université de Cocody — Parking des amphithéâtres du District",en:"Université de Cocody — District amphitheatres car park"},
   info2_lab:{fr:"Entraînements",en:"Training"},
-  info2_v:{fr:`Samedi &amp; dimanche · 16h30–18h00`,en:`Saturday &amp; Sunday · 4:30–6:00 pm`},
+  info2_v:{fr:`Mercredi, samedi &amp; dimanche · 16h30–18h00`,en:`Wednesday, Saturday &amp; Sunday · 4:30–6:00 pm`},
   info3_lab:{fr:"Âge minimum",en:"Minimum age"},
   info3_v:{fr:"À partir de 3 ans",en:"From age 3"},
   info4_lab:{fr:"Équipement",en:"Equipment"},
@@ -754,7 +809,7 @@ var I18N={
   lab_phone:{fr:"Téléphone",en:"Phone"},
   lab_mail:{fr:"E-mail",en:"Email"},
   lab_loc:{fr:"Où nous trouver",en:"Where to find us"},
-  loc_val:{fr:"Université de Cocody — Grand parking des amphis du district, Abidjan",en:"Université de Cocody — Main amphitheatre car park, Abidjan"},
+  loc_val:{fr:"Université de Cocody — Parking des amphithéâtres du District, Abidjan",en:"Université de Cocody — District amphitheatres car park, Abidjan"},
   lab_social:{fr:"Réseaux sociaux",en:"Social media"},
   foot_credit:{fr:`Réalisé par <b>AkwabaIA – Le Bon IT</b><br>WhatsApp +225 07 78 62 74 60 · <a href="#contact">alassanecool37@gmail.com</a>`,en:`Made by <b>AkwabaIA – Le Bon IT</b><br>WhatsApp +225 07 78 62 74 60 · <a href="#contact">alassanecool37@gmail.com</a>`}
 };
